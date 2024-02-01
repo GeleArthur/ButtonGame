@@ -1,11 +1,14 @@
 #pragma once
 #include "../GameEngine/GameEngine.h"
 
-class ButtonGame : GameEngine
+class ButtonGame : public GameEngine
 {
 private:
     
 public:
-    ButtonGame();
+    explicit ButtonGame();
     ~ButtonGame();
+
+    void Update() override;
+    void Render() override;
 };

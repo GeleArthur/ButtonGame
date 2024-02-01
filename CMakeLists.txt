@@ -9,6 +9,7 @@ add_executable(ButtonGame
 src/main.cpp
 
 src/ButtonGame/ButtonGame.h
+src/ButtonGame/ButtonGame.cpp
 
 src/GameEngine/GameEngine.cpp
 src/GameEngine/GameEngine.h

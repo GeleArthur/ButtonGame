@@ -2,6 +2,7 @@
 #include <string>
 #include <ctime>
 
+#include "GameEngine/GameEngine.h"
 #include "ButtonGame/ButtonGame.h"
 
 #ifdef W32
@@ -14,7 +15,7 @@ int main(int, char* [])
 	srand((unsigned int)time(nullptr));
 
 	ButtonGame* engine = new ButtonGame();
-	// engine->Run();
+	engine->Run();
 	delete engine;
 
 	return 0;

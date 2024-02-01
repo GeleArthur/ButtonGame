@@ -1,4 +1,4 @@
 # ButtonGame
 
-## Tip don't make a game engine and game at the same time
-_But we are going to do it anyway_
+## Tip don't make a GameEngine and a game at the same time
+_But we are going to do it anyway_ ;)

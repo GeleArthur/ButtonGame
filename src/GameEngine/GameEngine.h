@@ -5,7 +5,7 @@
 class GameEngine
 {
 public:
-    GameEngine(int width, int height);
+    explicit GameEngine(int width, int height);
     virtual ~GameEngine();
     virtual void Run();
     
