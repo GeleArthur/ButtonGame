@@ -1,11 +1,11 @@
 #pragma once
-#include <cstdint>
 
 class Renderer
 {
 public:
     static void Init(int width, int height);
+    
+    static void Quit();
 
 private:
-    static const uint8_t* m_keyBoardState;
 };

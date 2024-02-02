@@ -11,7 +11,6 @@
 #include <SDL_image.h>
 #include <SDL_ttf.h>
 
-const uint8_t* Renderer::m_keyBoardState{};
 
 void Renderer::Init(const int width, const int height)
 {
@@ -28,9 +27,12 @@ void Renderer::Init(const int width, const int height)
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-    m_keyBoardState = SDL_GetKeyboardState(nullptr);
-
     IMG_Init(IMG_INIT_PNG);
     TTF_Init();
 }
 
+void Renderer::Quit()
+{
+    IMG_Quit();
+    TTF_Quit();
+}

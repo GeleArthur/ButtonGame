@@ -30,12 +30,17 @@ GameEngine::GameEngine(const int width, const int height):
 
     m_Context = SDL_GL_CreateContext(m_Window);
     Renderer::Init(m_WindowWidth, m_WindowHeight);
+    InputManager::Init();
 }
 
 GameEngine::~GameEngine()
 {
     SDL_DestroyWindow(m_Window);
     SDL_GL_DeleteContext(m_Context);
+    Renderer::Quit();
+    InputManager::Quit();
+
+    SDL_Quit();
 }
 
 void GameEngine::Run()

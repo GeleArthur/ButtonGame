@@ -2,6 +2,13 @@
 
 #include <SDL_events.h>
 
+const uint8_t* InputManager::m_keyBoardState{};
+
+void InputManager::Init()
+{
+    m_keyBoardState = SDL_GetKeyboardState(nullptr);
+}
+
 void InputManager::PollEvents()
 {
     SDL_Event event;
@@ -21,6 +28,11 @@ void InputManager::PollEvents()
 bool InputManager::IsQuitting()
 {
     return m_IsQuitting;
+}
+
+void InputManager::Quit()
+{
+    
 }
 
 bool InputManager::m_IsQuitting = false;
