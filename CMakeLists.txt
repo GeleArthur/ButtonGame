@@ -45,8 +45,8 @@ target_link_libraries(ButtonGame PRIVATE $<TARGET_NAME_IF_EXISTS:SDL2::SDL2main>
 target_link_libraries(ButtonGame PRIVATE $<IF:$<TARGET_EXISTS:SDL2_image::SDL2_image>,SDL2_image::SDL2_image,SDL2_image::SDL2_image-static>)
 target_link_libraries(ButtonGame PRIVATE $<IF:$<TARGET_EXISTS:SDL2_ttf::SDL2_ttf>,SDL2_ttf::SDL2_ttf,SDL2_ttf::SDL2_ttf-static>)
 target_link_libraries(ButtonGame PRIVATE $<IF:$<TARGET_EXISTS:SDL2_mixer::SDL2_mixer>,SDL2_mixer::SDL2_mixer,SDL2_mixer::SDL2_mixer-static>)
-target_link_libraries(ButtonGame PRIVATE OpenGL::OpenGL)
+target_link_libraries(ButtonGame PRIVATE ${OPENGL_LIBRARIES})
 
 # Please please turn me on. (I cry)
-# target_compile_options(ButtonGame PRIVATE -Wall -Wextra -pedantic)
-# set_target_properties(ButtonGame PROPERTIES COMPILE_WARNING_AS_ERROR ON)
+target_compile_options(ButtonGame PRIVATE -Wall -Wextra -pedantic)
+set_target_properties(ButtonGame PROPERTIES COMPILE_WARNING_AS_ERROR ON)

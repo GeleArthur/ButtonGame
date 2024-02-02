@@ -6,7 +6,7 @@
 #endif
 
 #include <SDL_video.h>
-#include <GL/gl.h>
+#include <SDL2/SDL_opengl.h>
 #include <SDL2/SDL_keyboard.h>
 #include <SDL_image.h>
 #include <SDL_ttf.h>
