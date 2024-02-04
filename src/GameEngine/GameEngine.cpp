@@ -7,6 +7,7 @@
 #include <iostream>
 #include <SDL.h>
 #include <SDL_error.h>
+#include <SDL_opengl.h>
 #include <string>
 
 #include "InputManager.h"
@@ -17,8 +18,8 @@ GameEngine::GameEngine(const int width, const int height):
 {
     if (SDL_Init(SDL_INIT_VIDEO) < 0) Error(SDL_GetError());
 
-    SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 4);
-    SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 5);
+    SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 2);
+    SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 1);
 
     m_Window = SDL_CreateWindow(
         "",
@@ -47,7 +48,8 @@ void GameEngine::Run()
 {
     const std::chrono::steady_clock::time_point startTime = std::chrono::steady_clock::now();
     std::chrono::steady_clock::time_point prevTime = std::chrono::steady_clock::now();
-    
+
+    Init();
     while (!InputManager::IsQuitting())
     {
         InputManager::PollEvents();
@@ -66,9 +68,12 @@ void GameEngine::Run()
     Quit();
 }
 
+void GameEngine::Init()
+{
+}
+
 void GameEngine::Update()
 {
-    
 }
 
 void GameEngine::Render()
@@ -86,3 +91,4 @@ void GameEngine::Error(std::string message)
     throw;
     exit(-1);
 }
+

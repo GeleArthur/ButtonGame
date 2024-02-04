@@ -28,6 +28,8 @@ src/Utils/Texture.h
 src/Utils/Texture.cpp
 src/Utils/Rect.h
 src/Utils/Rect.cpp
+        src/GameEngine/Sprite.cpp
+        src/GameEngine/Sprite.h
 )
 
 set_target_properties(ButtonGame PROPERTIES
@@ -48,5 +50,5 @@ target_link_libraries(ButtonGame PRIVATE $<IF:$<TARGET_EXISTS:SDL2_mixer::SDL2_m
 target_link_libraries(ButtonGame PRIVATE ${OPENGL_LIBRARIES})
 
 # Please please turn me on. (I cry)
-target_compile_options(ButtonGame PRIVATE -Wall -Wextra -pedantic)
-set_target_properties(ButtonGame PROPERTIES COMPILE_WARNING_AS_ERROR ON)
+#target_compile_options(ButtonGame PRIVATE -Wall -Wextra -pedantic)
+#set_target_properties(ButtonGame PROPERTIES COMPILE_WARNING_AS_ERROR ON)

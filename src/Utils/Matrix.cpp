@@ -1,47 +1,6 @@
 #include "Matrix.h"
 #include <cmath>
 
-float & Matrix4x4::operator[](int index)
-{
-	switch (index)
-	{
-	case 0:
-		return m00;
-	case 1:
-		return m10;
-	case 2:
-		return m20;
-	case 3:
-		return m30;
-	case 4:
-		return m01;
-	case 5:
-		return m11;
-	case 6:
-		return m21;
-	case 7:
-		return m31;
-	case 8:
-		return m02;
-	case 9:
-		return m12;
-	case 10:
-		return m22;
-	case 11:
-		return m32;
-	case 12:
-		return m03;
-	case 13:
-		return m13;
-	case 14:
-		return m23;
-	case 15:
-		return m33;
-	default:
-		throw;
-	}
-}
-
 void Matrix4x4::OpenGlArray(GLfloat (&array)[16])
 {
 	array[0] =  m00;
@@ -84,7 +43,7 @@ Matrix4x4 Matrix4x4::TranslationMatrix(Vector2d position)
 	return result;
 }
 
-Matrix4x4 Matrix4x4::RotationMatrix(float rotation)
+Matrix4x4 Matrix4x4::RotationMatrixX(float rotation)
 {
 	Matrix4x4 rotationMatrix{IdentityMatrix()};
 	rotationMatrix.m00 = cos(rotation);
@@ -94,6 +53,23 @@ Matrix4x4 Matrix4x4::RotationMatrix(float rotation)
 	
 	return rotationMatrix;
 }
+
+Matrix4x4 Matrix4x4::ScaleMatrix(Vector2d scale)
+{
+    Matrix4x4 scaleMatrix{IdentityMatrix()};
+    scaleMatrix.m00 = scale.x;
+    scaleMatrix.m11 = scale.y;
+    return scaleMatrix;
+}
+
+// Test if this works?
+Matrix4x4 Matrix4x4::ScaleMatrix(float scale)
+{
+    Matrix4x4 scaleMatrix{IdentityMatrix()};
+    scaleMatrix.m33 = 1/scale;
+    return scaleMatrix;
+}
+
 
 void Matrix4x4::PrintMatrix(const Matrix4x4 &matrix)
 {
@@ -105,7 +81,7 @@ void Matrix4x4::PrintMatrix(const Matrix4x4 &matrix)
 
 Matrix4x4 Matrix4x4::operator*(const Matrix4x4 &other) const
 {
-	Matrix4x4 result;
+	Matrix4x4 result{};
 	
 	result.m00 = this->m00 * other.m00 + this->m01 * other.m10 + this->m02 * other.m20 + this->m03 * other.m30;
 	result.m01 = this->m00 * other.m01 + this->m01 * other.m11 + this->m02 * other.m21 + this->m03 * other.m31;
@@ -129,6 +105,7 @@ Matrix4x4 Matrix4x4::operator*(const Matrix4x4 &other) const
 
 	return result;
 }
+
 
 
 

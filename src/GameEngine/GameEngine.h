@@ -19,6 +19,7 @@ protected:
     SDL_Window* m_Window{};
     SDL_GLContext m_Context{};
 
+    virtual void Init();
     virtual void Update();
     virtual void Render();
     virtual void Quit();
